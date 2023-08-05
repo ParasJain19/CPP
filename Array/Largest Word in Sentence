@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n,flag=1;
+    cin>>n;
+    cin.ignore();
+    char arr[n+1];
+    cin.getline(arr,n);
+    cin.ignore();
+    int i=0,currenl=0,maxl=0,st=0,ep=0;
+    while(1)
+    {
+        if(arr[i]==' ' || arr[i]=='\0')
+        {
+            if(currenl>maxl)
+            {
+                maxl=currenl;
+                ep=st;
+            }currenl =0;
+            st=i+1;
+        }
+        else currenl++;
+        if(arr[i]=='\0') break;
+        i++;
+    }cout<<maxl<<endl;
+    for(int i=0;i<maxl;i++)
+     cout<<arr[i+ep];
+}
